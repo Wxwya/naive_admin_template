@@ -1,19 +1,15 @@
 <template>
-  <div class="aaa">
-    <n-form style="width: 100%;flex-wrap: wrap;" ref="formRef" :model="modelValue" :disabled="disabled" v-bind="$attrs">
-      <n-flex wrap>
+  <n-form style="width: 100%;" :inline="false" ref="formRef" :model="modelValue" :disabled="disabled" v-bind="$attrs">
+    <n-flex wrap >
       <component v-for="(p, i) in itemList" :key="i" :is="type[(p as any).type]" :value="modelValue"
-        :style="{width:`${100/row-0.5}%`}" :label="(p as any).label" :options="(p as any).options" :rules="(p as any).rules" :path="(p as any).path"
-        :placeholder="(p as any).placeholder"></component>
-        <transition>
+        :style="{ width:p.itemwidth?p.itemwidth:`calc(${100 / row }% - 10px)` }" v-bind="p" ></component>
+      <transition>
         <template v-for="(value, name) in $slots" #[name]="scope">
-            <slot :name="name" v-bind="scope" :key="name" :change="onChange" :state="disabled"></slot>
+          <slot :name="name" v-bind="scope" :key="name" :change="onChange" :state="disabled"></slot>
         </template>
       </transition>
-      </n-flex>
-    </n-form>
-
-  </div>
+    </n-flex>
+  </n-form>
 </template>
 
 <script lang="ts" setup>
@@ -30,12 +26,8 @@ const type: any = {
   date: MyDate,
   radio: MyRadio,
 }
-interface Attr {
-  name: string
-}
-// let { proxy } = getCurrentInstance() as any
+
 const disabled = ref(false)
-const attr = useAttrs<Attr>()
 defineProps({
   modelValue: {
     type: Object,
@@ -48,6 +40,10 @@ defineProps({
   row: {
     type: Number,
     default: 1
+  },
+  inline: {
+    type: Boolean,
+    default: false
   }
 
 })
@@ -68,4 +64,6 @@ defineExpose({
 
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

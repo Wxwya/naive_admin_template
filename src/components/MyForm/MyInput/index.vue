@@ -1,5 +1,5 @@
 <template>
-  <n-form-item :label="label" :path="path" :rule="rules"  >
+  <n-form-item :label="label" :path="path" :rule="rules" v-bind="$attrs"  >
     <!-- v-model:value="formValue.name" -->
       <n-input v-model:value=" value![path]"  :placeholder="placeholder" />
     </n-form-item>
