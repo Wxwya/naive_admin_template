@@ -55,7 +55,6 @@ const customRequest = async ({
       onProgress
 }: UploadCustomRequestOptions) => {
   console.log(file);
-  
       const formData = new FormData()
   formData.append('file', file.file as File)
       const res  = await fetch("http://127.0.0.1:3800/upload", {
@@ -63,31 +62,22 @@ const customRequest = async ({
         body: formData
       })
   const json = await res.json()
-  if (json.fileUrl) {
+  console.log(json);
+  
+  if (json.code == 200) {
+    
     file.url=json.fileUrl
     onFinish()
 
   } else { 
+    console.log(window.$msg);
+    console.log(window.$msg.error);
+    
+    window.$msg.error(json.msg, {duration:4000})
+    // window.$msg.error()
     onError()
   }
-      // console.log(json);
-      // lyla
-      //   .post(action as string, {
-      //     withCredentials,
-      //     headers: headers as Record<string, string>,
-      //     body: formData,
-      //     onUploadProgress: ({ percent }) => {
-      //       onProgress({ percent: Math.ceil(percent) })
-      //     }
-      //   })
-      //   .then(({ json }) => {
-      //     message.success(JSON.stringify(json))
-      //     onFinish()
-      //   })
-      //   .catch((error) => {
-      //     message.success(error.message)
-      //     onError()
-      //   })
+
     }
 </script>
 
