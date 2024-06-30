@@ -1,6 +1,6 @@
 <template>
   <n-form-item :label="label" :path="path">
-    <n-select style="min-width:100%" v-model:value="value![path]" :multiple="multiple" :placeholder="placeholder"  :options="(options as SelectOption[])" />
+    <n-transfer v-model:value="value![path]" style="width: 100%" :options="options" />
   </n-form-item>
 </template>
 
@@ -23,19 +23,8 @@ defineProps({
     type: Array,
     default: () => []
   },
-  placeholder: {
-    type: String,
-    default: void 0
-  },
-  multiple: {
-    type: Boolean,
-    default: false
-  }
+
 })
 </script>
 
-<style  scoped>
-:deep(.n-tag){
-  --n-color:'' !important;
-}
-</style>
+<style lang="scss" scoped></style>

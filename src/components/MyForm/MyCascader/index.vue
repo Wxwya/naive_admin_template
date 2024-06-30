@@ -1,6 +1,14 @@
 <template>
   <n-form-item :label="label" :path="path">
-    <n-select style="min-width:100%" v-model:value="value![path]" :multiple="multiple" :placeholder="placeholder"  :options="(options as SelectOption[])" />
+    <n-cascader
+    v-model:value="value![path]" 
+     :placeholder="placeholder"
+      expand-trigger="click"
+      :options="options"
+      check-strategy="child"
+      :show-path="true"
+      :filterable="true"
+    />
   </n-form-item>
 </template>
 
@@ -27,15 +35,8 @@ defineProps({
     type: String,
     default: void 0
   },
-  multiple: {
-    type: Boolean,
-    default: false
-  }
+
 })
 </script>
 
-<style  scoped>
-:deep(.n-tag){
-  --n-color:'' !important;
-}
-</style>
+<style lang="scss" scoped></style>

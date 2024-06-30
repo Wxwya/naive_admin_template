@@ -19,12 +19,26 @@ import MySelect from "./MySelect/index.vue"
 import MyDate from "./MyDete/index.vue";
 import MyRadio from "./MyRadio/index.vue";
 import MyButton from "./MyButton/index.vue"
+import MyTags from "./MyTags/index.vue"
+import MyNumberInput from './MyNumberInput/index.vue'
+import MySwitch from "./MySwitch/index.vue"
+import MyCascader from './MyCascader/index.vue'
+import MyTransfer from './MyTransfer/index.vue'
+import MyAutoInput from "./MyAutoInput/index.vue"
+import MyUpload from './MyUpload/index.vue'
 const type: any = {
   input: MyInput,
   check: MyCheck,
   select: MySelect,
   date: MyDate,
   radio: MyRadio,
+  tags: MyTags,
+  number: MyNumberInput,
+  switch: MySwitch,
+  cascader: MyCascader,
+  transfer: MyTransfer,
+  auto: MyAutoInput,
+  upload:MyUpload
 }
 
 const disabled = ref(false)

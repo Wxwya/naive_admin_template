@@ -13,7 +13,6 @@ declare module '@vue/runtime-core' {
     $mitt: Mitt;
     $cfz: (color: string, ilighten: number) => string;
     $htor: (color: string, opacity: number) => string;
-    $theme: NaiveUI.GlobalTheme | null;
   }
 }
 const init = (app: any) => {

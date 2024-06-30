@@ -10,7 +10,7 @@
      </MyForm>
      <div class="border-0 border-l-4 border-solid border-green-400 text-2xl font-bold pl-4 ">正常表格示例</div>
      <div class="m-10 w-[700px]">
-      <MyForm  label-placement="left" :item-list="queryFormItem2" v-model="queryFormData" :row="3"   >
+      <MyForm  label-width="auto" label-placement="left" :item-list="queryFormItem2" v-model="queryFormData" :row="3"   >
       <template #default>
         <div class="w-full flex justify-center gap-4">
           <n-button type="primary" @click="submit"> 提交</n-button>
@@ -27,6 +27,7 @@
 class QueryFormData {
   remarks = ''
   address = ""
+  remarks221214222=""
 }
  
 const queryFormItem = [
@@ -35,23 +36,38 @@ const queryFormItem = [
   { label: '备注:', path: 'remarks1', type: 'input', placeholder: '请输入备注' },
   { label: '备注:', path: 'remarks2', type: 'input', placeholder: '请输入备注' },
 ]
-const queryFormItem2 = [
-  { label: '输入框input', path: 'address', itemwidth: '100%', type: 'input', placeholder: '请输入地址' },
-  { label: '多选select:', path: 'remarks1111', itemwidth: '100%',type: 'select',multiple:true, placeholder: '请输入备注',options: [{ label: "选项1", value: 1 }, {label:"选项2",value:2}, {label:"选项2",value:3}, {label:"选项4",value:4}] },
-  { label: '单选select:', path: 'remarks6666', type: 'select', placeholder: '请输入备注',options: [{ label: "选项1", value: 1 }, {label:"选项2",value:2}] },
-  { label: 'date日期:', path: 'remarks122', type: 'date', placeholder: '请输入备注', },
-  { label: 'datetime日期加时间:', path: 'remarks26666', type: 'date', dateType: "datetime", itemwidth: '100%', placeholder: '请输入备注' },
-  { label: 'daterange日期范围:', path: 'remarks2666688888',  type: 'date',dateType:"daterange",itemwidth: '100%', placeholder: '请输入备注' },
-  { label: 'check多选复选框:', path: 'remarks2', type: 'check', placeholder: '请输入备注',options: [{ label: "选项1", value: 1 }, {label:"选项2",value:2}],itemwidth:"100%", },
-  { label: 'radio单选按钮:', path: 'remarks4', type: 'radio',itemwidth:"100%", options: [{ label: "选项1", value: 1 }, {label:"选项2",value:2}],   },
-]
-
 const queryFormData = ref<QueryFormData>(new QueryFormData())
+
+const oo =computed(() => {
+        return ['@gmail.com', '@163.com', '@qq.com'].map((suffix) => {
+          const prefix = queryFormData.value.remarks221214222.split('@')[0]
+          return {
+            label: prefix + suffix,
+            value: prefix + suffix
+          }
+        })
+})
+      //  如果要使用auto输入框 必须是ref包裹 
+  const queryFormItem2 = ref([
+  { label: 'input输入框:', path: 'address', itemwidth: '100%', type: 'input', placeholder: '请输入地址' },
+  { label: 'textarea文本框:', path: 'address', itemwidth: '100%', type: 'input', nativeType: "textarea", placeholder: '请输入地址' },
+  { label: 'auto输入框:', path: 'remarks221214222', type: 'auto', itemwidth: "100%", options:oo   },
+  { label: 'select多选:', path: 'remarks1111', itemwidth: '100%',type: 'select',multiple:true, placeholder: '请输入备注',options: [{ label: "选项1", value: 1 }, {label:"选项2",value:2}, {label:"选项2",value:3}, {label:"选项4",value:4}] },
+  { label: 'select单选:', path: 'remarks6666', type: 'select',itemwidth: '100%', placeholder: '请输入备注',options: [{ label: "选项1", value: 1 }, {label:"选项2",value:2}] },
+  { label: 'date日期:', path: 'remarks122', type: 'date',itemwidth: '100%', placeholder: '请输入备注', },
+  { label: 'datetime日期加时间:', path: 'remarks26666', type: 'date', nativeType: "datetime", itemwidth: '100%', placeholder: '请输入备注' },
+  { label: 'daterange日期范围:', path: 'remarks2666688888',  type: 'date',nativeType:"daterange",itemwidth: '100%', placeholder: '请输入备注' },
+  { label: 'check多选复选框:', path: 'remarks2', type: 'check', placeholder: '请输入备注',options: [{ label: "选项1", value: 1 }, {label:"选项2",value:2}],itemwidth:"100%", },
+  { label: 'radio单选按钮:', path: 'remarks4', type: 'radio', itemwidth: "100%", options: [{ label: "选项1", value: 1 }, { label: "选项2", value: 2 }], },
+  { label: 'tags标签:', path: 'remarks4555', type: 'tags', itemwidth: "100%", },
+  { label: 'number计数器:', path: 'remarks45515', type: 'number', itemwidth: "100%", },
+  { label: 'switch开关:', path: 'remarks4551511', type: 'switch', itemwidth: "100%", },
+  { label: 'cascader级联选择器:', path: 'remarks4551511666', type: 'cascader', itemwidth: "100%", options: [{ label: "选项1", value: 1, children: [{ label: "选项11", value: 11 }] }, { label: "选项2", value: 2, children: [{ label: "选项22", value: 22 }] }] },
+    { label: 'transfer穿梭框:', path: 'remarks221214', type: 'transfer', itemwidth: "100%", options: [{ label: "选项1", value: 1 }, { label: "选项2", value: 2 }], },
+    { label: '图片上传:', path: 'image', type: 'upload', itemwidth: "100%", },
+])
+
 const clean = () => {
-  // queryFormData.value = new QueryFormData()
-  // queryStatus.value = false
-  // pagination.page = 1
-  // getList()
 
   console.log("清空");
 }

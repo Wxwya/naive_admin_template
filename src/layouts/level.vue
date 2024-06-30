@@ -10,12 +10,12 @@
     </n-layout-sider>
 
     <n-layout class="h-[100vh]">
-      <n-layout-header class="w-full h-[64px] pr-[30px]" bordered>
+      <n-layout-header class="w-full h-[64px] pr-[30px] " bordered >
         <n-flex justify="end" class="h-full" align="center">
           <Down />
         </n-flex>
       </n-layout-header>
-      <n-layout :native-scrollbar="false">
+      <n-layout  class="h-[calc(100vh-64px)]" :native-scrollbar="false">
         <router-view v-slot="{ Component }">
           <transition appear name="fade-transform" mode="out-in">
             <keep-alive>
