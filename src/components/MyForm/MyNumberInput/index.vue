@@ -1,6 +1,6 @@
 <template>
-  <n-form-item :label="label" :path="path" :rule="rules" v-bind="$attrs"  >
-    <n-input-number style="width: 100%;" v-model:value=" value![path]" :placeholder="placeholder" button-placement="both" />
+  <n-form-item v-show="isShow" :style="style" :label="label" :path="path" :rule="rules"  :key="path+isShow" >
+    <n-input-number style="width: 100%;" button-placement="both" v-model:value=" value![path]" v-bind="$attrs"   />
     </n-form-item>
 </template>
 
@@ -26,6 +26,14 @@
     type: String,
     default: ''
    },
+   style: {
+    type: Object,
+    default: () => ({})
+   },
+   isShow: {
+    type: Boolean,
+    default: true
+  }
  })
 
 

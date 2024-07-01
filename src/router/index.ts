@@ -12,12 +12,12 @@ export const pageRoutes: Array<RouteRecordRaw> = [
     path: '/',
     name: 'layout',
     component: layout,
-    redirect: '/home',
+    redirect: '/form',
     children: [
       {
-        path: '/home',
-        name: 'home',
-        meta: { title: '首页', icon: 'emojione-v1--keycap-1' },
+        path: '/form',
+        name: 'form',
+        meta: { title: '表单示例', icon: 'emojione-v1--keycap-1' },
         component: () => import('@/views/home/index.vue'),
       },
     ],

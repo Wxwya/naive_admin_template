@@ -1,6 +1,6 @@
 <template>
-  <n-form-item :label="label" :path="path" :rule="rules" v-bind="$attrs"  >
-      <n-dynamic-tags v-model:value=" value![path]"     />
+  <n-form-item v-show="isShow" :label="label" :style="style" :path="path" :rule="rules" :key="path+isShow"   >
+      <n-dynamic-tags v-model:value=" value![path]"  v-bind="$attrs"    />
     </n-form-item>
 </template>
 
@@ -22,7 +22,14 @@
     type: Array,
     default: ()=>[]
    },
-
+   style: {
+    type: Object,
+    default: () => ({})
+   },
+   isShow: {
+    type: Boolean,
+    default: true
+  }
  })
 
 

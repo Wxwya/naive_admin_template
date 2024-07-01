@@ -1,11 +1,11 @@
 <template>
   <n-form style="width: 100%;" :inline="false" ref="formRef" :model="modelValue" :disabled="disabled" v-bind="$attrs">
     <n-flex wrap >
-      <component v-for="(p, i) in itemList" :key="i" :is="type[(p as any).type]" :value="modelValue"
+      <component  v-for="(p, i) in itemList" :key="i"  :is="type[(p as ComponentMap).type]" :value="modelValue"
         :style="{ width:p.itemwidth?p.itemwidth:`calc(${100 / row }% - 10px)` }" v-bind="p" ></component>
       <transition>
         <template v-for="(value, name) in $slots" #[name]="scope">
-          <slot :name="name" v-bind="scope" :key="name" :change="onChange" :state="disabled"></slot>
+          <slot :name="name" v-bind="scope" :key="name" :change="onChange" :state="disabled" :validate="validate" :reset="reset"></slot>
         </template>
       </transition>
     </n-flex>
@@ -26,7 +26,21 @@ import MyCascader from './MyCascader/index.vue'
 import MyTransfer from './MyTransfer/index.vue'
 import MyAutoInput from "./MyAutoInput/index.vue"
 import MyUpload from './MyUpload/index.vue'
-const type: any = {
+interface ComponentMap {
+  input: ComponentType;
+  check: ComponentType;
+  select: ComponentType;
+  date: ComponentType;
+  radio: ComponentType;
+  tags: ComponentType;
+  number: ComponentType;
+  switch: ComponentType;
+  cascader: ComponentType;
+  transfer: ComponentType;
+  auto: ComponentType;
+  upload: ComponentType;
+}
+const type: ComponentMap = {
   input: MyInput,
   check: MyCheck,
   select: MySelect,
@@ -41,19 +55,23 @@ const type: any = {
   upload:MyUpload
 }
 
-const disabled = ref(false)
+const disabled = ref<boolean>(false)
 defineProps({
   modelValue: {
     type: Object,
-    default: void 0
+    default: void 0,
+    required:true
   },
   itemList: {
     type: Array,
-    default: () => []
+    default: () => [],
+    required:true
   },
   row: {
     type: Number,
-    default: 1
+    default: 1,
+    required:true
+    
   },
   inline: {
     type: Boolean,
@@ -61,13 +79,18 @@ defineProps({
   }
 
 })
-const formRef = ref<any>()
+const formRef = ref<NaiveUI.FormInst|null>(null)
 
 const onChange = () => {
   disabled.value = !disabled.value
 }
 const validate = () => {
+  console.log(formRef.value);
+  
   return formRef.value.validate
+}
+const reset = () => {
+  formRef.value.restoreValidation()
 }
 defineExpose({
   validate,

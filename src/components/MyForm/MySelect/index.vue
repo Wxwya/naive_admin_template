@@ -1,11 +1,10 @@
 <template>
-  <n-form-item :label="label" :path="path">
-    <n-select style="min-width:100%" v-model:value="value![path]" :multiple="multiple" :placeholder="placeholder"  :options="(options as SelectOption[])" />
+  <n-form-item  v-show="isShow" :label="label" :style="style" :path="path" :rule="rules" :key="path+isShow">
+    <n-select  v-model:value="value![path]" v-bind="$attrs"  />
   </n-form-item>
 </template>
 
 <script setup lang="ts">
-import type { SelectOption } from "naive-ui";
 defineProps({
   value: {
     type: Object,
@@ -19,22 +18,22 @@ defineProps({
     type: String,
     default: ''
   },
-  options: {
+  rules: {
     type: Array,
     default: () => []
   },
-  placeholder: {
-    type: String,
-    default: void 0
+  style: {
+    type: Object,
+    default: () => ({})
   },
-  multiple: {
+  isShow: {
     type: Boolean,
-    default: false
+    default: true
   }
 })
 </script>
 
-<style  scoped>
+<style lang="css"  scoped>
 :deep(.n-tag){
   --n-color:'' !important;
 }

@@ -1,9 +1,8 @@
 <template>
- <n-form-item :label="label" :path="path">
+ <n-form-item v-show="isShow" :label="label" :style="style" :path="path" :rule="rules" :key="path+isShow">
       <n-checkbox-group v-model:value="value![path]">
           <n-checkbox v-for="(p,i) in options" :key="i" :value="(p as any).value" :label="(p as any).label">
           </n-checkbox>
-
       </n-checkbox-group>
     </n-form-item> 
 </template>
@@ -25,6 +24,18 @@
   options: {
     type: Array,
     default: () => []
+   },
+   rules: {
+    type: Array,
+    default: () => []
+   },
+   style: {
+    type: Object,
+    default: () => ({})
+   },
+   isShow: {
+    type: Boolean,
+    default: true
   }
 })
 </script>

@@ -1,6 +1,6 @@
 <template>
-  <n-form-item :label="label" :path="path">
-    <n-transfer v-model:value="value![path]" style="width: 100%" :options="options" />
+  <n-form-item v-show="isShow" :label="label" :style="style"  :rule="rules" :path="path" :key="path+isShow">
+    <n-transfer v-model:value="value![path]" style="width: 100%" v-bind="$attrs" />
   </n-form-item>
 </template>
 
@@ -19,11 +19,19 @@ defineProps({
     type: String,
     default: ''
   },
-  options: {
+
+  style: {
+    type: Object,
+    default: () => ({})
+  },
+  rules: {
     type: Array,
     default: () => []
   },
-
+  isShow: {
+    type: Boolean,
+    default: true
+  }
 })
 </script>
 

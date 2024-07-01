@@ -21,6 +21,7 @@ declare module 'vue' {
     MyRadio: typeof import('./../components/MyForm/MyRadio/index.vue')['default']
     MySelect: typeof import('./../components/MyForm/MySelect/index.vue')['default']
     MySwitch: typeof import('./../components/MyForm/MySwitch/index.vue')['default']
+    MyTable: typeof import('./../components/MyTable/index.vue')['default']
     MyTags: typeof import('./../components/MyForm/MyTags/index.vue')['default']
     MyTransfer: typeof import('./../components/MyForm/MyTransfer/index.vue')['default']
     MyUpload: typeof import('./../components/MyForm/MyUpload/index.vue')['default']

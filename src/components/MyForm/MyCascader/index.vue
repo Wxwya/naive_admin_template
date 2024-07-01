@@ -1,19 +1,11 @@
 <template>
-  <n-form-item :label="label" :path="path">
-    <n-cascader
-    v-model:value="value![path]" 
-     :placeholder="placeholder"
-      expand-trigger="click"
-      :options="options"
-      check-strategy="child"
-      :show-path="true"
-      :filterable="true"
-    />
+  <n-form-item v-show="isShow" :style="style" :label="label" :path="path" :rule="rules" :key="path+isShow">
+    <n-cascader v-model:value="value![path]" expand-trigger="click" check-strategy="child" :show-path="true"
+      :filterable="true" v-bind="$attrs" />
   </n-form-item>
 </template>
 
 <script setup lang="ts">
-import type { SelectOption } from "naive-ui";
 defineProps({
   value: {
     type: Object,
@@ -27,15 +19,18 @@ defineProps({
     type: String,
     default: ''
   },
-  options: {
+  rules: {
     type: Array,
     default: () => []
   },
-  placeholder: {
-    type: String,
-    default: void 0
+  style: {
+    type: Object,
+    default: () => ({})
   },
-
+  isShow: {
+    type: Boolean,
+    default: true
+  }
 })
 </script>
 

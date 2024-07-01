@@ -1,6 +1,6 @@
 <template>
-<n-form-item :label="label" :path="path">
-      <n-radio-group v-model:value="value![path]" name="radiogroup1">
+<n-form-item v-show="isShow" :style="style" :label="label" :path="path" :rule="rules" :key="path+isShow">
+      <n-radio-group v-model:value="value![path]" >
           <n-radio v-for="(p,i) in options" :key="i" :value="(p as any).value" :label="(p as any).label">
           </n-radio>
 
@@ -25,6 +25,18 @@
   options: {
     type: Array,
     default: () => []
+   },
+   rules: {
+    type: Array,
+    default: () => []
+   },
+   style: {
+    type: Object,
+    default: () => ({})
+   },
+   isShow: {
+    type: Boolean,
+    default: true
   }
 })
 </script>

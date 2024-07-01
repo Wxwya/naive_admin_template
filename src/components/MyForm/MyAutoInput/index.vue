@@ -1,8 +1,6 @@
 <template>
-  <n-form-item :label="label" :path="path" :rule="rules" v-bind="$attrs">
-    <n-auto-complete v-model:value="value![path]" :input-props="{
-      autocomplete: 'disabled'
-    }" :options="options" :placeholder="placeholder" clearable />
+  <n-form-item v-show="isShow" :key="path+isShow"  :style="style" :label="label" :path="path" :rule="rules" v-bind="$attrs">
+    <n-auto-complete v-model:value="value![path]" :input-props="{ autocomplete: 'disabled' }"  clearable v-bind="$attrs" />
   </n-form-item>
 </template>
 
@@ -20,23 +18,18 @@ defineProps({
     type: String,
     default: ''
   },
-  placeholder: {
-    type: String,
-    default: ''
-  },
   rules: {
     type: Array,
     default: () => []
   },
-  nativeType: {
-    type: String,
-    default: 'text'
+  style: {
+    type: Object,
+    default: () => ({})
   },
-  options: {
-    type: Array,
-    default: () => []
-  },
-
+  isShow: {
+    type: Boolean,
+    default: true
+  }
 })
 
 
