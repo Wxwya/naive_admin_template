@@ -1,34 +1,27 @@
-// import mitt from "mitt"
-interface Mitt { 
-  on:(event: string, handler: Function): void;
-  off:(event: string, handler: Function): void;
-  emit:(event: string, payload?: any): void;
-}
-interface Proxy extends ComponentPublicInstance {
-  $api: Api;
-  $mitt: Mitt;
-  $cfz: (color: string, ilighten: number) => string;
-  $htor: (color: string, opacity: number) => string;
-}
-interface Window {
-  /** 将naive常用组件挂在至window */
-  $bar?: import('naive-ui').LoadingBarProviderInst;
-  // $dialog?: import('naive-ui').DialogProviderInst;
-  $msg?: import('naive-ui').MessageProviderInst;
-  // $notification?: import('naive-ui').NotificationProviderInst;
-}
+
+
+
 declare global {
-  const Proxy: Proxy;
-  const Mitt: Mitt; 
+  interface Window {
+    /** 将naive常用组件挂在至window */
+    $dialog: import('naive-ui').DialogProviderInst;
+    $notice: import('naive-ui').NotificationProviderInst;
+    $bar: import('naive-ui').LoadingBarProviderInst;
+    $msg: import('naive-ui').MessageProviderInst;
+    $model:import('naive-ui').ModalProviderInst
+  };
 }
 
 import * as NaiveUI from 'naive-ui';
-
 export as namespace NaiveUI;
 export * from 'naive-ui';
 
 declare module 'vue' {
   export interface GlobalComponents {
     MyForm: typeof import('./../components/MyForm/index.vue')['default'] & typeof import('naive-ui')['NForm']
+    MyTabel: typeof import('./../components/MyTabel/index.vue')['default'] & typeof import('naive-ui')['NTable']
+    MyButton: typeof import('./../components/MyButton/index.vue')['default'] & typeof import('naive-ui')['NButton']
+    MyPopconfirm: typeof import('./../components/MyPopconfirm/index.vue')['default'] & typeof import('naive-ui')['NPopconfirm']
+    MyPopover: typeof import('./../components/MyPopover/index.vue')['default'] & typeof import('naive-ui')['NPopover']
   }
 }

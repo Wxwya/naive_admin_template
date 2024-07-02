@@ -4,7 +4,7 @@ import { darkTheme } from 'naive-ui'
 const useSystemStore = defineStore('system', {
   state: () => ({
     layout: 'level', // 默认布局 level(水平) vertical(垂直)
-    permissions: ["user","info","chart","about","posts"],
+    permissions: ["user","info","chart","table","posts"],
     routes: [],
     routesAdded: false,
     theme: null, // naiveui主题 darkTheme 或 null

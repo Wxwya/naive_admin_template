@@ -18,17 +18,22 @@ export const pageRoutes: Array<RouteRecordRaw> = [
         path: '/form',
         name: 'form',
         meta: { title: '表单示例', icon: 'emojione-v1--keycap-1' },
-        component: () => import('@/views/home/index.vue'),
-      },
+        component: () => import('@/views/form/index.vue'),
+      }, {
+        path: '/other',
+        name: 'other',
+        meta: { title: '其他示例', icon: 'emojione-v1--keycap-7' },
+        component: () => import('@/views/other/index.vue'),
+      }
     ],
   }
 ]
 export const asyncPageRoutes: Array<RouteRecordRaw> = [
   {
-    path: '/about',
-    name: 'about',
-    meta: { title: '关于我们', icon: 'emojione-v1--keycap-2' },
-    component: () => import('@/views/about/index.vue'),
+    path: '/table',
+    name: 'table',
+    meta: { title: '表格示例', icon: 'emojione-v1--keycap-2' },
+    component: () => import('@/views/table/index.vue'),
   },
   {
     path: '/info',

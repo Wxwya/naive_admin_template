@@ -4,8 +4,8 @@
       <component  v-for="(p, i) in itemList" :key="i"  :is="type[(p as ComponentMap).type]" :value="modelValue"
         :style="{ width:p.itemwidth?p.itemwidth:`calc(${100 / row }% - 10px)` }" v-bind="p" ></component>
       <transition>
-        <template v-for="(value, name) in $slots" #[name]="scope">
-          <slot :name="name" v-bind="scope" :key="name" :change="onChange" :state="disabled" :validate="validate" :reset="reset"></slot>
+        <template v-for="(_, name) in $slots" #[name]="scope">
+          <slot :name="name"  :key="name" :change="onChange" :state="disabled" :validate="validate" :reset="reset" v-bind="scope"></slot>
         </template>
       </transition>
     </n-flex>
