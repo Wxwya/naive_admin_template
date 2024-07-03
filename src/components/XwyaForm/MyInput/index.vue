@@ -1,6 +1,6 @@
 <template>
-  <n-form-item   :label="label" :style="style" :path="path" :rule="rules" v-show="isShow" :key="path+isShow">
-    <n-input  v-model:value="value![path]" :type="nativeType" v-bind="$attrs" />
+  <n-form-item   :label="label" :style="style" :path="path" :rule="rules" v-show="isShow" >
+    <n-input  v-model:value="value![path]" :type="nativeType" v-bind="$attrs" :key="path+isShow" />
   </n-form-item>
 </template>
 

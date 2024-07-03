@@ -1,11 +1,11 @@
 <template>
-  <n-form-item v-show="isShow" :style="style" :label="label" :path="path" :rule="rules"  :key="path+isShow" >
-    <n-input-number style="width: 100%;" button-placement="both" v-model:value=" value![path]" v-bind="$attrs"   />
-    </n-form-item>
+  <n-form-item v-show="isShow" :style="style" :label="label" :path="path" :rule="rules" :key="path + isShow">
+    <n-input-number style="width: 100%;" button-placement="both" v-model:value="value![path]" v-bind="$attrs" />
+  </n-form-item>
 </template>
 
 <script setup lang="ts">
- defineProps({
+defineProps({
   value: {
     type: Object,
     default: void 0,
@@ -18,26 +18,24 @@
     type: String,
     default: ''
   },
-   rules: {
+  rules: {
     type: Array,
-    default: ()=>[]
-   },
-   placeholder: {
+    default: () => []
+  },
+  placeholder: {
     type: String,
     default: ''
-   },
-   style: {
+  },
+  style: {
     type: Object,
     default: () => ({})
-   },
-   isShow: {
+  },
+  isShow: {
     type: Boolean,
     default: true
   }
- })
+})
 
 
 
 </script>
-
-

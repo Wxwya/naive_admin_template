@@ -1,7 +1,8 @@
 <template>
     <n-data-table  
     :remote="true" 
-    @update:checked-row-keys="(onSelect as Function)" :bordered="false" 
+    @update:checked-row-keys="(onSelect as Function)" 
+    :bordered="false" 
     :single-line="false" 
     :columns="(columns as any)" 
     :data="(data as any)" 

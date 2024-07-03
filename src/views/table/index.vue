@@ -2,7 +2,7 @@
   <div class="p-4">
     <div class="border-0 border-l-4 border-solid border-green-400 text-2xl font-bold pl-4">表格示例</div>
     <div class="py-10">
-      <XwyaTabel :columns="initColumns()" :data="data" :row-key="setRowKey" :onSelect="onSelect" :pagination="initPagination()" :loading="loading" />
+      <XwyaTabel :columns="initColumns()" :data="data" :row-key="setRowKey" :onSelect="onSelect " :pagination="initPagination()" :loading="loading" />
     </div>
 
   </div>
@@ -11,25 +11,25 @@
 <script setup lang="ts">
 import usePage from '@/hooks/usePage'
 const arr = [
-  { name: "xw", age: 18, sex: "男" },
-  { name: "xw", age: 18, sex: "男" },
-  { name: "xw", age: 18, sex: "男" },
-  { name: "xw", age: 18, sex: "男" },
-  { name: "xw", age: 18, sex: "男" },
-  { name: "xw", age: 18, sex: "男" },
-  { name: "xw", age: 18, sex: "男" },
-  { name: "xw", age: 18, sex: "男" },
-  { name: "xw", age: 18, sex: "男" },
-  { name: "xw", age: 18, sex: "男" },
-  { name: "xw", age: 18, sex: "男" },
+  { id: 1, name: "xw", age: 18, sex: "男" },
+  { id: 2, name: "xw", age: 18, sex: "男" },
+  { id: 3, name: "xw", age: 18, sex: "男" },
+  { id: 4, name: "xw", age: 18, sex: "男" },
+  { id: 5, name: "xw", age: 18, sex: "男" },
+  { id: 6, name: "xw", age: 18, sex: "男" },
+  { id: 7, name: "xw", age: 18, sex: "男" },
+  { id: 8, name: "xw", age: 18, sex: "男" },
+  { id: 9, name: "xw", age: 18, sex: "男" },
+  { id: 10, name: "xw", age: 18, sex: "男" },
+  { id: 11, name: "xw", age: 18, sex: "男" },
 ]
-const { page, total,loading,data } = usePage()
-const initColumns = () => { 
+const { page, total, loading, data } = usePage()
+const initColumns = () => {
   return [
-  {
-    type: 'selection',
-    fixed: 'left'
-  },
+    {
+      type: 'selection',
+      fixed: 'left'
+    },
     {
       title: 'Name',
       key: 'name'
@@ -45,7 +45,7 @@ const initColumns = () => {
     {
       title: 'Action',
       key: 'actions',
-      render (row) {
+      render(row) {
         return h('div',
           {
             onClick: () => show(row)
@@ -55,55 +55,55 @@ const initColumns = () => {
       }
     }]
 }
-const initPagination = () => { 
+const initPagination = () => {
   return {
     itemCount: total.value,
     pageSizes: [10, 20],
-    pageSlot:7,
+    pageSlot: 7,
     page: page.pageNum,
-    "onUpdate:page": (p:number) => { 
+    "onUpdate:page": (p: number) => {
       // console.log(page);
       page.pageNum = p
       getList()
     },
   }
 }
-const getdata = () => { 
-  return new Promise((resolve, reject) => { 
-    setTimeout(() => { 
+const getdata = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
       resolve({
         code: 200,
         data: arr,
         total: 300,
         msg: "请求成功"
       })
-    },1000)
+    }, 1000)
   })
 }
-const getList = async () => { 
-  loading.value=true
+const getList = async () => {
+  loading.value = true
   const res = await getdata()
-  if (res.code === 200) { 
+  if (res.code === 200) {
     data.value = res.data
     total.value = res.total
     window.$msg?.success(res.msg)
-    loading.value=false
+    loading.value = false
   }
 
 }
-const show = (row: any) => { 
+const show = (row: any) => {
   window.$msg?.success(JSON.stringify(row))
 }
-const onSelect = (keys,rows) => { 
-  console.log(keys,rows);
-  
+const onSelect = (keys, rows) => {
+  console.log(keys, rows);
+
 }
 const setRowKey = (obj: any) => {
-  // 生成不重复我随机数
-  return Math.random().toString(36).substr(2)
+  // 生成不重复随机数
+  return obj.id
 }
 
-onMounted(() => { 
+onMounted(() => {
   getList()
 })
 
