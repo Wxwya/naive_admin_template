@@ -1,1 +1,0 @@
-import{_ as e}from"../index.B6lcC1yc.js";import{o,q as c}from"../.pnpm/.pnpm.DlQf7Ou3.js";const r={},s={class:""};function t(n,_){return o(),c("div",s,"user")}const i=e(r,[["render",t]]);export{i as default};
