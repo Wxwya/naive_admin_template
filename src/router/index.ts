@@ -82,11 +82,9 @@ export const staticRoutes: Array<RouteRecordRaw> = [
 
 const _createRouter = () =>
     createRouter({
-        history: createWebHistory(),
-        // history: createWebHashHistory(), //哈希模式
-        // mode: 'history', // require service support
+        // history: createWebHistory(),
+        history: createWebHashHistory(), //哈希模式
       scrollBehavior: () => ({ top: 0 }),
-      // ...pageRoutes,...noLoyoutRoutes
         routes: [...noLoyoutRoutes]
     });
 

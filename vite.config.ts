@@ -75,6 +75,7 @@ export default defineConfig(({ mode }:{ mode: string }) => {
     resolve,
     server,
     build,
-    // esbuild
+    esbuild,
+    base: './'
   }
 })

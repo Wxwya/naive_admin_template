@@ -1,1 +1,0 @@
-import{_ as e}from"../index.CmZ_x9or.js";import{o,q as c}from"../.pnpm/.pnpm.TXbtyYUu.js";const t={},r={class:"p-4"};function s(n,_){return o(),c("div",r," 文章 ")}const i=e(t,[["render",s]]);export{i as default};
