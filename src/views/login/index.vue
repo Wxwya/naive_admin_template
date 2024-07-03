@@ -37,7 +37,6 @@
 <script setup lang="ts">
 import useSystemStore from '@/store/useSystemStore';
 const systemStore = useSystemStore()
-console.log(systemStore.theme);
 const { push } = useRouter()
 const { query } = useRoute()
 const info = reactive({
