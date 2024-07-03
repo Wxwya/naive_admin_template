@@ -6,7 +6,7 @@
  * 示例: handleColorReversal("#000000", -4); 返回: #bbbbbb
  */
 export const handleColorReversal = (color: string, ilighten: number = 0): string => {
-  if (color.startsWith('rgba')) {
+  if (color.startsWith('rgba')||color.startsWith('rgb')) {
     return handleRgbaReversal(color, ilighten);
   } else if (color.startsWith('#')) {
     return handleHexReversal(color, ilighten);

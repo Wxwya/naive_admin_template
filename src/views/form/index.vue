@@ -1,16 +1,16 @@
 <template>
   <div class="p-4">
     <div class="border-0 border-l-4 border-solid border-green-400 text-2xl font-bold pl-4 ">查询示例</div>
-    <MyForm class="m-10" label-placement="left" :item-list="queryFormItem" v-model="queryFormData" :row="7">
+    <XwyaForm class="m-10" label-placement="left" :item-list="queryFormItem" v-model="queryFormData" :row="7">
       <template #default="{ change, state }">
         <n-button :type="!state ? 'primary' : 'error'" @click="search(state, change)">
           {{ state ? '取消' : '搜索' }}
         </n-button>
       </template>
-    </MyForm>
+    </XwyaForm>
     <div class="border-0 border-l-4 border-solid border-green-400 text-2xl font-bold pl-4 ">正常表单示例</div>
     <div class="m-10 w-[700px]">
-      <MyForm :rules="rules" label-width="auto" label-placement="left" :item-list="queryFormItem2"
+      <XwyaForm :rules="rules" label-width="auto" label-placement="left" :item-list="queryFormItem2"
         v-model="queryFormData" :row="3">
         <template #default="{ validate, reset }">
           <div class="w-full flex justify-center gap-4">
@@ -19,11 +19,11 @@
           </div>
 
         </template>
-      </MyForm>
+      </XwyaForm>
     </div>
     <div class="border-0 border-l-4 border-solid border-green-400 text-2xl font-bold pl-4 ">动态表单示例</div>
     <div class="m-10 w-[700px]">
-      <MyForm :rules="rules" label-width="auto" label-placement="left" :item-list="queryFormItem3"
+      <XwyaForm :rules="rules" label-width="auto" label-placement="left" :item-list="queryFormItem3"
         v-model="queryFormData" :row="3">
         <template #default="{ validate, reset }">
           <div class="w-full flex justify-center gap-4">
@@ -32,7 +32,7 @@
           </div>
 
         </template>
-      </MyForm>
+      </XwyaForm>
     </div>
   </div>
 </template>

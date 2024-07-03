@@ -11,7 +11,7 @@ declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
     $api: Api; 
     $mitt: Mitt;
-    $cfz: (color: string, ilighten: number) => string;
+    $qf: (color: string, ilighten: number) => string;
     $htor: (color: string, opacity: number) => string;
   }
 }
@@ -22,7 +22,7 @@ const init = (app: any) => {
   const systemStore = useSystemStore()
   app.config.globalProperties.$api = api
   app.config.globalProperties.$mitt = mitt()
-  app.config.globalProperties.$cfz = handleColorReversal
+  app.config.globalProperties.$qf = handleColorReversal
   app.config.globalProperties.$htor = toHexToRGB
 }
 export default init

@@ -6,7 +6,7 @@ type Mitt {
  interface CusProxy extends ComponentPublicInstance {
   $api: Api;
   $mitt: Mitt;
-  $cfz: (color: string, lighten: number) => string;
+  $qf: (color: string, lighten: number) => string;
   $htor: (color: string, opacity: number) => string;
 }
 // declare global { 

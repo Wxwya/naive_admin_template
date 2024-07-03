@@ -1,37 +1,71 @@
 <template>
-  <div class="">
-    <n-button type="primary"  @click="login"> 
+  <div class=" relative w-full h-[100vh]"
+    :style="{ background: systemStore.theme ? systemStore.theme.common.bodyColor : '#fff' }">
+    <!-- <n-button type="primary"  @click="login"> 
       login
-    </n-button>
-    <n-button type="primary"  @click="toHome"> 
-      toHome
-    </n-button>
-    <n-button type="primary"  @click="setToken"> 
-      setToken
-    </n-button>
-    <n-button type="primary"  @click="removeToken"> 
-      removeToken
-    </n-button>
+    </n-button> -->
+    <div class=" absolute left-1/2 top-1/2 rounded-lg px-8 py-5 -translate-x-1/2 -translate-y-1/2 " :style="mainStyle">
+      <h1 class=" text-4xl text-center"
+        :style="{ color: `${$qf(systemStore.theme ? systemStore.theme.common.bodyColor : '#fff', 3)}` }">
+        Login</h1>
+      <n-form :model="info">
+        <n-form-item path="username" label="账号:">
+          <n-input placeholder="请输入账号">
+            <template #prefix>
+              <span class="iconify-color emojione-v1--blond-haired-person text-xl"></span>
+            </template>
+          </n-input>
+        </n-form-item>
+        <n-form-item path="password" label="密码:">
+          <n-input  :type="type" placeholder="请输入密码">
+            <template #prefix>
+              <span class="iconify-color emojione-v1--locked text-xl"></span>
+            </template>
+            <template #suffix>
+              <span  :class="`iconify-color  text-xl ${type==='password'?'emojione-v1--smiling-face-with-sunglasses':' emojione-v1--grinning-face-with-big-eyes'}`" @click="type==='password'?type='text':type='password'"></span>
+            </template>
+          </n-input>
+        </n-form-item>
+         <n-form-item>
+           <XwyaButton type="success"  text="登录" block @click="login" />
+         </n-form-item>
+      </n-form>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import useSystemStore from '@/store/useSystemStore';
 const systemStore = useSystemStore()
-const router = useRouter()
+console.log(systemStore.theme);
+const { push } = useRouter()
+const { query } = useRoute()
+const info = reactive({
+  username: '',
+  password: ''
+})
+const type = ref("password")
+
+const mainStyle = computed(() => {
+  return {
+    width: `${systemStore.pc ? '350px' : '90%'}`,
+    background: systemStore.theme ? systemStore.theme.common.cardColor : '#fff',
+    boxShadow: systemStore.theme ? '0 15px 25px rgba(0,0,0,.6)' : 'rgba(0, 0, 0, 0.35) 0px 5px 15px'
+  }
+})
 const login = () => {
-  setToken()
-  toHome()
-}
-const toHome = () => { 
-  router.push('/')
-}
-const setToken = () => { 
-  systemStore.setToken()
-}
-const removeToken= () => { 
-  localStorage.removeItem('token')
+  window.$msg.loading('登录中...',{duration:0})
+  setTimeout(() => {
+    window.$msg.destroyAll()
+    window.$msg.success('登录成功')
+    localStorage.setItem('token', '123456')
+    push({ path: query.redirect ? query.redirect : '/', })
+  }, 1000);
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="css" scoped>
+:deep(.n-form-item-label__text) {
+  @apply text-lg font-bold
+}
+</style>

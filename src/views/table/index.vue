@@ -2,7 +2,7 @@
   <div class="p-4">
     <div class="border-0 border-l-4 border-solid border-green-400 text-2xl font-bold pl-4">表格示例</div>
     <div class="py-10">
-      <MyTabel :columns="initColumns()" :data="data" :row-key="setRowKey" :onSelect="onSelect" :pagination="initPagination()" :loading="loading" />
+      <XwyaTabel :columns="initColumns()" :data="data" :row-key="setRowKey" :onSelect="onSelect" :pagination="initPagination()" :loading="loading" />
     </div>
 
   </div>
@@ -23,7 +23,7 @@ const arr = [
   { name: "xw", age: 18, sex: "男" },
   { name: "xw", age: 18, sex: "男" },
 ]
-const { page, total,loading } = usePage()
+const { page, total,loading,data } = usePage()
 const initColumns = () => { 
   return [
   {
@@ -58,7 +58,8 @@ const initColumns = () => {
 const initPagination = () => { 
   return {
     itemCount: total.value,
-    pageSizes: [10,20],
+    pageSizes: [10, 20],
+    pageSlot:7,
     page: page.pageNum,
     "onUpdate:page": (p:number) => { 
       // console.log(page);
@@ -67,7 +68,6 @@ const initPagination = () => {
     },
   }
 }
-const data = ref([])
 const getdata = () => { 
   return new Promise((resolve, reject) => { 
     setTimeout(() => { 

@@ -2,7 +2,7 @@
   <n-dropdown :options="options"  trigger="click" @select="handleSelect">
     <!-- <n-button>xwya</n-button> -->
     <n-space class=" items-center">
-      <n-avatar round size="small" src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg" />
+      <n-avatar v-if="settings.avatar" round size="small" src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg" />
       <div>xwya</div>
     </n-space>
   </n-dropdown>
@@ -13,6 +13,7 @@ import { h, defineComponent } from 'vue'
 import type { Component } from 'vue'
 import { NIcon } from 'naive-ui'
 import useSystemStore from '@/store/useSystemStore'
+import settings from '@/settings'
 const systemStore = useSystemStore()
 
 
@@ -37,7 +38,6 @@ const options = [
   }
 ]
 const handleSelect = (key: string | number) => { 
-  console.log(key);
   switch (key) { 
     case 'editProfile':
     systemStore.changeLayout()
@@ -48,6 +48,8 @@ const handleSelect = (key: string | number) => {
       break;
     case 'logout':
       console.log('logout');
+      localStorage.removeItem("token")
+      window.location.reload()
       break;
     default:
       console.log('default');

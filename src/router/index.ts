@@ -19,12 +19,7 @@ export const pageRoutes: Array<RouteRecordRaw> = [
         name: 'form',
         meta: { title: '表单示例', icon: 'emojione-v1--keycap-1' },
         component: () => import('@/views/form/index.vue'),
-      }, {
-        path: '/other',
-        name: 'other',
-        meta: { title: '其他示例', icon: 'emojione-v1--keycap-7' },
-        component: () => import('@/views/other/index.vue'),
-      }
+      },
     ],
   }
 ]
@@ -36,10 +31,16 @@ export const asyncPageRoutes: Array<RouteRecordRaw> = [
     component: () => import('@/views/table/index.vue'),
   },
   {
+    path: '/other',
+    name: 'other',
+    meta: { title: '其他示例', icon: 'emojione-v1--keycap-7' },
+    component: () => import('@/views/other/index.vue'),
+  },
+  {
     path: '/info',
     name: 'info',
     redirect: '/posts',
-    meta: { title: '信息', icon: 'emojione-v1--keycap-3' },
+    meta: { title: '测试二级路由', icon: 'emojione-v1--keycap-3' },
     children: [
       {
         path: '/info/posts',

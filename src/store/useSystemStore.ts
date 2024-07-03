@@ -1,13 +1,16 @@
 import { defineStore } from 'pinia'
 import router, { pageRoutes, noLoyoutRoutes, asyncPageRoutes, staticRoutes } from '@/router'
 import { darkTheme } from 'naive-ui'
+import { markRaw } from 'vue'
 const useSystemStore = defineStore('system', {
   state: () => ({
     layout: 'level', // 默认布局 level(水平) vertical(垂直)
-    permissions: ["user","info","chart","table","posts"],
+    permissions: ["user","info","chart","table","posts","other"],
     routes: [],
     routesAdded: false,
     theme: null, // naiveui主题 darkTheme 或 null
+    pc: true,
+    collapsed:false
   }),
   actions: {
     changeLayout() {
@@ -19,7 +22,7 @@ const useSystemStore = defineStore('system', {
     },
 
     changeTheme() {
-      this.theme = this.theme != null ? null : darkTheme
+      this.theme = this.theme != null ? null : markRaw(darkTheme) 
     },
     addRoutes() {
       console.log('开始添加路由')

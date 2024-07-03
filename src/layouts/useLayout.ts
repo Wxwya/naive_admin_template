@@ -1,14 +1,14 @@
-import { storeToRefs} from "pinia"
+import { storeToRefs } from "pinia"
 import useSystemStore from "@/store/useSystemStore";
 const useLayout = () => { 
-  const systemStore = useSystemStore()
   const { push } = useRouter()
   const r = useRoute()
   const path = ref('')
-  
-  const { routes } = storeToRefs(systemStore)
-  const collapsed = ref(false)
-  const onUpdareValue = (key:string) => {
+  const { routes,collapsed,pc } = storeToRefs(useSystemStore())
+  const onUpdareValue = (key: string) => {
+    if (!pc.value) { 
+      collapsed.value=false
+    }
     push(key)
   }
   const renderMenuIcon = (option: NaiveUI.MenuOption) => {
@@ -22,7 +22,8 @@ const useLayout = () => {
     collapsed,
     path,
     onUpdareValue,
-    renderMenuIcon
+    renderMenuIcon,
+    pc
   }
 }
 export default useLayout;

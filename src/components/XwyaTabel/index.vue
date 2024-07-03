@@ -8,7 +8,7 @@
     :pagination="(pagination as NaiveUI.PaginationProps)"   
     :paginate-single-page="true" 
     :loading="loading" 
-    :striped="true" 
+    :striped="true"
     v-bind="$attrs"  >
     <template  v-for="(value, name) in $slots" #[name] :key="name">
       <slot :name="name" :slot="value"></slot>
