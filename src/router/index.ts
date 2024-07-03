@@ -6,7 +6,6 @@ declare module 'vue-router' {
         alwaysShow?: boolean;
     }
 }
-const noLayout = ["/login"]
 export const pageRoutes: Array<RouteRecordRaw> = [
   {
     path: '/',
