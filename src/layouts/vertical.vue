@@ -1,6 +1,5 @@
 <template>
   <n-layout>
-    <!-- https://upload.shejihz.com/2020/02/961c95fffbdd3ecc99fdb4e33faa8237.jpg -->
     <n-layout-header class="w-full h-[64px] pr-[30px]" bordered>
       <n-flex justify="space-between" class="h-full" align="center">
         <div class="pl-4" v-if="!pc">
@@ -11,7 +10,7 @@
         <Down />
       </n-flex>
     </n-layout-header>
-    <n-layout class="h-[calc(100vh-64px)]" has-sider>
+    <n-layout class="h-[calc(var(--vh,1vh)*100-64px)]" has-sider>
       <n-layout-sider v-if="pc" collapse-mode="width" :collapsed-width="64" :width="240" :collapsed="collapsed" show-trigger
         @collapse="collapsed = true" @expand="collapsed = false" bordered>
         <n-menu   :render-icon="renderMenuIcon" :default-value="path" @update:value="onUpdareValue"  :collapsed="collapsed" :collapsed-width="64" :collapsed-icon-size="22" :options="routes" />

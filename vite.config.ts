@@ -1,4 +1,5 @@
-import { defineConfig,loadEnv } from 'vite'
+// @ts-nocheck
+import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
@@ -60,7 +61,9 @@ const esbuild= {
 
 export default defineConfig(({ mode }:{ mode: string }) => { 
   const env = loadEnv(mode, __dirname)
-  const  server = {
+  const server = {
+    // 选择本地ip
+    host:'0.0.0.0',
     port:  parseInt(env.VITE_APP_START_PORT),
     proxy: {
       [env.VITE_APP_PREFIX]: {

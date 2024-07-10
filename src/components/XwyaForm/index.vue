@@ -13,19 +13,19 @@
 </template>
 
 <script lang="ts" setup>
-import MyInput from "./MyInput/index.vue"
-import MyCheck from "./MyCheck/index.vue"
-import MySelect from "./MySelect/index.vue"
-import MyDate from "./MyDete/index.vue";
-import MyRadio from "./MyRadio/index.vue";
-import MyButton from "./MyButton/index.vue"
-import MyTags from "./MyTags/index.vue"
-import MyNumberInput from './MyNumberInput/index.vue'
-import MySwitch from "./MySwitch/index.vue"
-import MyCascader from './MyCascader/index.vue'
-import MyTransfer from './MyTransfer/index.vue'
-import MyAutoInput from "./MyAutoInput/index.vue"
-import MyUpload from './MyUpload/index.vue'
+import MyInput from "./MyInput"
+import MyCheck from "./MyCheck"
+import MySelect from "./MySelect"
+import MyDate from "./MyDete";
+import MyRadio from "./MyRadio";
+import MyButton from "./MyButton"
+import MyTags from "./MyTags"
+import MyNumberInput from './MyNumberInput'
+import MySwitch from "./MySwitch"
+import MyCascader from './MyCascader'
+import MyTransfer from './MyTransfer'
+import MyAutoInput from "./MyAutoInput/"
+import MyUpload from './MyUpload'
 interface ComponentMap {
   input: ComponentType;
   check: ComponentType;

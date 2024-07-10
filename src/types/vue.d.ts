@@ -25,3 +25,8 @@ declare module 'vue' {
     MyPopover: typeof import('./../components/MyPopover/index.vue')['default'] & typeof import('naive-ui')['NPopover']
   }
 }
+declare module '*.vue' {
+  import { defineComponent } from 'vue';
+  const component: ReturnType<typeof defineComponent>;
+  export default component;
+}

@@ -2,7 +2,7 @@ import api from '@/api';
 import mitt from 'mitt';
 import router from "@/router"
 import store from '@/store';
-import { registerIcons} from '@/icon';
+import  '@/icon';
 import "./naive"
 import "@/router/permission"
 import { handleColorReversal, toHexToRGB } from "@/utils/handleColor"
@@ -18,7 +18,7 @@ declare module '@vue/runtime-core' {
 const init = (app: any) => {
   app.use(router)
   app.use(store)
-  registerIcons(app)
+  // registerIcons(app)
   const systemStore = useSystemStore()
   app.config.globalProperties.$api = api
   app.config.globalProperties.$mitt = mitt()

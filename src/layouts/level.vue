@@ -9,7 +9,7 @@
       </div>
     </n-layout-sider>
 
-    <n-layout class="h-[100vh]">
+    <n-layout class="h-[calc(var(--vh,1vh)*100)]">
       <n-layout-header class="w-full h-[64px] pr-[30px] " bordered>
         <n-flex :justify="pc ? 'end' : 'space-between'" class="h-full" align="center">
           <div class="pl-4" v-if="!pc">

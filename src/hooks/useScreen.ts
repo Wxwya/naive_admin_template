@@ -11,6 +11,8 @@ const useScreen = () => {
   }
   const resizeHandler = () => {
     if (!document.hidden) {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
       const is = isMobile()
       // true移动端，falsepc端
       pc.value = !is
@@ -19,6 +21,7 @@ const useScreen = () => {
       }
     }
   }
+
   onBeforeMount(() => {
     window.addEventListener('resize', resizeHandler)
   })
@@ -32,6 +35,7 @@ const useScreen = () => {
       pc.value = !is
       collapsed.value = false
     }
+
   })
 }
 export default useScreen;
