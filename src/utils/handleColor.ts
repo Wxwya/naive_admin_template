@@ -1,5 +1,5 @@
 /**
- * 计算反色,
+ * @author  xwya 
  * @param {string} color 色值
  * @param {number} ilighten 减弱对比度(-1 ~ -15)
  * @returns {string} 反色值
@@ -49,7 +49,7 @@ const handleRgbaReversal = (rgba: string, ilighten: number): string => {
 }
 
 /**
- * 
+ * @author  xwya 
  * @param {string} hex  颜色 
  * @param {number} opacity  透明度0-1
  * @returns {string} 弱化值 

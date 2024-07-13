@@ -27,8 +27,6 @@ import { VNode } from 'vue';
   return defineComponent({
     render() {
       if (typeof com === 'function') {
-        console.log("进来了");
-        
         return com();
       }
       return com;
