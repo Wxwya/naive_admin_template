@@ -74,7 +74,6 @@ export const noLoyoutRoutes: Array<RouteRecordRaw> = [
 export const staticRoutes: Array<RouteRecordRaw> = [
   {
     path: '/:pathMatch(.*)*', // 捕获所有未匹配的路由
-    name: 'NotFound',
     component: ()=>import("@/views/404"),
     hidden: true
   },
