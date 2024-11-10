@@ -24,7 +24,6 @@ const handlePositiveClick = () => {
         :tooltip-config="{ placement: 'top' }" pop-text="确认删除吗" tooltip-text="删除">
           <XwyaButton  v-has="'xwya:user:delete'"  circle type="error" iconSize="20" icon="iconify solar--trash-bin-trash-bold"  />
         </XwyaRemind>
-        <div class="iconify solar--link-square-bold"></div>
   </div>
 </template>
 
