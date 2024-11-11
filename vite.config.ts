@@ -20,7 +20,7 @@ const plugins=[
     dirs: ['./src/components'],
     resolvers:[NaiveUiResolver(), IconsResolver()]
   }),
-  Icons({ autoInstall: true }),
+  Icons({ autoInstall: true,compiler: 'vue3' }),
   svgSpritePlugin.default({ symbolId: (name) => "icon-" + name }),
 ]
 const resolve= {
@@ -65,13 +65,13 @@ export default defineConfig(({ mode }:{ mode: string }) => {
     // 选择本地ip
     host:'0.0.0.0',
     port:  parseInt(env.VITE_APP_START_PORT),
-    // proxy: {
-    //   [env.VITE_APP_PREFIX]: {
-    //     target: env.VITE_APP_URL,
-    //     changeOrigin: true,
-    //     rewrite: (p:string) => p.replace(new RegExp('^' + env.VITE_APP_PREFIX), '')
-    //   }
-    // }
+    proxy: {
+      [env.VITE_APP_PREFIX]: {
+        target: env.VITE_APP_URL,
+        changeOrigin: true,
+        rewrite: (p:string) => p.replace(new RegExp('^' + env.VITE_APP_PREFIX), '')
+      }
+    }
   }
   return {
     plugins,

@@ -8,6 +8,9 @@
         </n-button>
       </template>
     </XwyaForm>
+    <span class="iconify solar--clipboard-bold"> </span>
+    <!-- <span class="icon-[solar--settings-bold]"></span> -->
+    <MyIcon icon="solar--4k-linear" />
     <div class="border-0 border-l-4 border-solid border-green-400 text-2xl font-bold pl-4 ">正常表单示例</div>
     <div class="m-10 w-[700px]">
       <XwyaForm :rules="rules" label-width="auto" label-placement="left" :item-list="queryFormItem2"
@@ -38,6 +41,7 @@
 </template>
 
 <script setup lang="ts">
+
 class QueryFormData {
   remarks = ''
   address = ""

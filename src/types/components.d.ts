@@ -7,12 +7,16 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    IIcBaselineArrowBackIos: typeof import('~icons/ic/baseline-arrow-back-ios')['default']
+    IIcBaselineVideoCameraFront: typeof import('~icons/ic/baseline-video-camera-front')['default']
+    ITablerAbacusOff: typeof import('~icons/tabler/abacus-off')['default']
     Loading: typeof import('./../components/Loading/index.vue')['default']
     MenuModal: typeof import('./../components/MenuModal/index.vue')['default']
     MyAutoInput: typeof import('./../components/XwyaForm/MyAutoInput/index.vue')['default']
     MyCascader: typeof import('./../components/XwyaForm/MyCascader/index.vue')['default']
     MyCheck: typeof import('./../components/XwyaForm/MyCheck/index.vue')['default']
     MyDete: typeof import('./../components/XwyaForm/MyDete/index.vue')['default']
+    MyIcon: typeof import('./../components/MyIcon/index.vue')['default']
     MyInput: typeof import('./../components/XwyaForm/MyInput/index.vue')['default']
     MyNumberInput: typeof import('./../components/XwyaForm/MyNumberInput/index.vue')['default']
     MyRadio: typeof import('./../components/XwyaForm/MyRadio/index.vue')['default']

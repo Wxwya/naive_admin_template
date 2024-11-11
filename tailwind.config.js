@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const { addIconSelectors } = require('@iconify/tailwind');
+const { addIconSelectors,addDynamicIconSelectors } = require('@iconify/tailwind');
 export default {
   content: [
     "./index.html",
@@ -9,6 +9,7 @@ export default {
     extend: {},
   },
   plugins: [
+    // addDynamicIconSelectors(['emojione-v1','gg','solar',"ic"]),
     addIconSelectors(['emojione-v1','gg','solar',"ic"]),
   ],
   corePlugins: {

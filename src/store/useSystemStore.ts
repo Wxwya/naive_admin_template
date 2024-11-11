@@ -3,6 +3,7 @@ import router, { getPageRoutes, noLoyoutRoutes, asyncPageRoutes, staticRoutes,re
 import { getUserInfo as getUserInfoApi } from '@/api/user'
 import { darkTheme } from 'naive-ui'
 import { markRaw } from 'vue'
+import MyIcon from "@/components/MyIcon"
 const useSystemStore = defineStore('system', {
   state: () => ({
     layout: 'level', // 默认布局 level(水平) vertical(垂直)
@@ -88,10 +89,13 @@ const useSystemStore = defineStore('system', {
       return routes.map((item) => {
         if (item.hidden) return 
         let p = { label: item.title, key: item.path }
-          item.icon? p.icon = () => h('span', { class: `iconify ${item.icon}` }):''
+        item.icon ? p.icon = () => h(MyIcon, { icon:item.icon  }) : ''
+        console.log(item.icon);
+        
         if (item.children && item.children.length > 0) {
           if (item.children.length == 1) {
-              item.children[0].icon? p.icon = () => h('span', { class: `iconify ${item.children[0].icon}` }):''
+            item.children[0].icon ? p.icon = () => h(MyIcon, {icon:item.children[0].icon}) : ''
+            console.log(item.children[0].icon);
             p.title = item.children[0].title
             p.key = item.children[0].path
           } else { 
@@ -103,8 +107,6 @@ const useSystemStore = defineStore('system', {
     },
     resetStore() { 
       localStorage.removeItem("token")
-      console.log(getPageRoutes());
-      
       this.$reset()
       resetRouter()
     }

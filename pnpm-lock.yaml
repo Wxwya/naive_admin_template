@@ -8,12 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@iconify-json/ic':
-        specifier: ^1.2.1
-        version: 1.2.1
-      '@iconify-json/solar':
-        specifier: ^1.2.1
-        version: 1.2.1
       '@types/node':
         specifier: ^20.14.8
         version: 20.14.9
@@ -54,6 +48,15 @@ importers:
       '@iconify-json/gg':
         specifier: ^1.1.9
         version: 1.1.9
+      '@iconify-json/ic':
+        specifier: ^1.2.1
+        version: 1.2.1
+      '@iconify-json/solar':
+        specifier: ^1.2.1
+        version: 1.2.1
+      '@iconify-json/tabler':
+        specifier: ^1.2.7
+        version: 1.2.7
       '@iconify/tailwind':
         specifier: ^1.1.1
         version: 1.1.1
@@ -292,6 +295,9 @@ packages:
 
   '@iconify-json/solar@1.2.1':
     resolution: {integrity: sha512-LA3WZ7HOi5O/sEc2M+BcQNJYNFDnUKP+ZldmNf8kwndnCuFMo+fukt6tSu4BqYRsRgp/Ku4xnys1JGBDi+QtCQ==}
+
+  '@iconify-json/tabler@1.2.7':
+    resolution: {integrity: sha512-q6FbDeC5caOC7i7/dcJOv7PdovHWItd84hCvsnlD/mzsrl5Nhol6eSQOMRv1bIpyxykGEiSDbOsVK5f23j/aFg==}
 
   '@iconify/tailwind@1.1.1':
     resolution: {integrity: sha512-4mmA//qjZigv7D4KlqcVSYTqfRIJzyts2/lSCAJfCL0rVMIE76+ifJnaE5jxCo1+nYGBF8FsFo0qFOs+sX4EnA==}
@@ -1538,6 +1544,10 @@ snapshots:
       '@iconify/types': 2.0.0
 
   '@iconify-json/solar@1.2.1':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/tabler@1.2.7':
     dependencies:
       '@iconify/types': 2.0.0
 
