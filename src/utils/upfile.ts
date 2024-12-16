@@ -1,4 +1,6 @@
 import axios, { AxiosResponse} from "axios";
+import cache from "./cache";
+import { TOKEN_KEY } from "@/enums/cacheEnums";
 /**
  * 
  * @param file 文件
@@ -18,7 +20,7 @@ export const upFile = (url:string,file:File, queryData:QueryData) => {
   formData.append('file', file);
   axios.post(import.meta.env.VITE_APP_URL + import.meta.env.VITE_APP_PREFIX + url, formData, {
     headers: {
-      'Authorization': 'Bearer ' + localStorage.getItem('token'),
+      'Authorization': 'Bearer ' + cache.getLocalStorage(TOKEN_KEY),
       ...queryData.headers,
     }
     onUploadProgress:queryData.onUploadProgress
@@ -44,7 +46,7 @@ export const upManyFile = (url: string, files: File[], queryData: QueryData):Pro
   })
   axios.post(import.meta.env.VITE_APP_URL + import.meta.env.VITE_APP_PREFIX + url, formData, {
     headers: {
-      'Authorization': 'Bearer ' + localStorage.getItem('token'),
+      'Authorization': 'Bearer ' + cache.getLocalStorage(TOKEN_KEY),
       ...queryData.headers,
     }
     onUploadProgress:queryData.onUploadProgress

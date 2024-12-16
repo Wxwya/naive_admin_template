@@ -1,11 +1,11 @@
-import request from "@/utils/fetch"
+import request from "@/utils/request"
 
-export const getDictList = (data: any) => request({ url: "/dict/dictlist", method: "post", data })
-export const generateDict = (data: any) => request({ url: "/dict/generateDict", method: 'post', data }, true)
-export const getDictType = (type: string) => request({ url: `/dict/${type}` })
-export const delDict = (data: any) => request({ url: "/dict/deleteDict", method: "post", data })
-export const getDictInfo = (id:any) => request({ url: `/dict/dictinfo/${id}` })
-export const getDictTypeList = (data: any) => request({ url: "/dict/dictTypeList", method: "post", data })
-export const delDictType = (data: any) => request({ url: "/dict/deleteDictType", method: "post", data },true)
-export const generateDictType = (data: any) => request({ url: "/dict/generateDictType", method: 'post', data }, true)
-export const changeDictStatus = (data: any) => request({ url: "/dict/changeStatus", method: "post", data},true)
+export const getDictList = (data: any) => request.post({ url: "/dict/dictlist", data })
+export const generateDict = (data: any) => request.post({ url: "/dict/generateDict", data }, {show:true})
+export const getDictType = (type: string) => request.get({ url: `/dict/${type}` })
+export const delDict = (data: any) => request.post({ url: "/dict/deleteDict",  data })
+export const getDictInfo = (id:any) => request.get({ url: `/dict/dictinfo/${id}` })
+export const getDictTypeList = (data: any) => request.post({ url: "/dict/dictTypeList",  data })
+export const delDictType = (data: any) => request.post({ url: "/dict/deleteDictType",  data },{show:true})
+export const generateDictType = (data: any) => request.post({ url: "/dict/generateDictType", data }, {show:true})
+export const changeDictStatus = (data: any) => request.post({ url: "/dict/changeStatus", data }, {show:true})

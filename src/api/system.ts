@@ -1,6 +1,6 @@
-import request from "@/utils/fetch"
+import request from "@/utils/request"
 import { allMsgs } from "@/config/message"
 
-export const login = (data:any) => request({ url: "/system/login", method: 'post', data },true)
-export const logout = () => request({ url: "/system/logout", method: 'post' },true,allMsgs.logout)
-export const getLogList = (data:any) => request({ url: "/system/loglist", method: 'post', data })
+export const login = (data: any) => request.post({ url: "/system/login", method: 'post', data }, {show:true})
+export const logout = () => request.post({ url: "/system/logout", method: 'post' }, {show:true,message:allMsgs.logout})
+export const getLogList = (data:any) => request.post({ url: "/system/loglist", data })

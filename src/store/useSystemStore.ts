@@ -1,9 +1,11 @@
 import { defineStore } from 'pinia'
 import router, { getPageRoutes, noLoyoutRoutes, asyncPageRoutes, staticRoutes,resetRouter } from '@/router'
 import { getUserInfo as getUserInfoApi } from '@/api/user'
+
 import { darkTheme } from 'naive-ui'
 import { markRaw } from 'vue'
 import MyIcon from "@/components/MyIcon"
+import cache from '@/utils/cache'
 const useSystemStore = defineStore('system', {
   state: () => ({
     layout: 'level', // 默认布局 level(水平) vertical(垂直)
@@ -26,7 +28,6 @@ const useSystemStore = defineStore('system', {
         this.userInfo= res.data
         this.permissions = res.data.permissions
         this.handleRoutes(res.data.routes)
-        // this.addRoutes()
       }      
       
     },
@@ -106,7 +107,7 @@ const useSystemStore = defineStore('system', {
       }).filter(Boolean)
     },
     resetStore() { 
-      localStorage.removeItem("token")
+      cache.remove('token')
       this.$reset()
       resetRouter()
     }

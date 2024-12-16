@@ -35,7 +35,9 @@
 </template>
 
 <script setup lang="ts">
+import { TOKEN_KEY } from '@/enums/cacheEnums';
 import useSystemStore from '@/store/useSystemStore';
+import cache from '@/utils/cache';
 const systemStore = useSystemStore()
 const { push } = useRouter()
 const { query } = useRoute()
@@ -57,7 +59,8 @@ const login = async () => {
   const m = window.$msg.loading('登录中...', { duration: 0 })
   const res = await proxy.$api.system.login(info)
   if (res.code === 200) { 
-    localStorage.setItem('token', res.token)
+    // localStorage.setItem('token', res.token)
+    cache.setLocalStorage(TOKEN_KEY,res.token)
     push({ path: query.redirect ? query.redirect : '/', })
   }
   m.destroy()

@@ -7,9 +7,6 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    IIcBaselineArrowBackIos: typeof import('~icons/ic/baseline-arrow-back-ios')['default']
-    IIcBaselineVideoCameraFront: typeof import('~icons/ic/baseline-video-camera-front')['default']
-    ITablerAbacusOff: typeof import('~icons/tabler/abacus-off')['default']
     Loading: typeof import('./../components/Loading/index.vue')['default']
     MenuModal: typeof import('./../components/MenuModal/index.vue')['default']
     MyAutoInput: typeof import('./../components/XwyaForm/MyAutoInput/index.vue')['default']
@@ -70,7 +67,6 @@ declare module 'vue' {
     XwyaPopconfirm: typeof import('./../components/XwyaPopconfirm/index.vue')['default']
     XwyaPopover: typeof import('./../components/XwyaPopover/index.vue')['default']
     XwyaPullRefresh: typeof import('./../components/XwyaPullRefresh/index.vue')['default']
-    XwyaRe: typeof import('./../components/XwyaRe/index.vue')['default']
     XwyaRemind: typeof import('./../components/XwyaRemind/index.vue')['default']
     XwyaTabel: typeof import('./../components/XwyaTabel/index.vue')['default']
     XwyaTabs: typeof import('./../components/XwyaTabs/index.vue')['default']
