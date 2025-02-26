@@ -1,0 +1,44 @@
+{
+  "name": "naive_admin_template",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b &&  vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@types/node": "^20.14.8",
+    "axios": "^1.7.2",
+    "js-cookie": "^3.0.5",
+    "mitt": "^3.0.1",
+    "pinia": "^2.1.7",
+    "pinia-plugin-persistedstate": "^3.2.1",
+    "unplugin-icons": "^0.19.0",
+    "vconsole": "^3.15.1",
+    "vite-plugin-svg-sprite-component": "^1.0.10",
+    "vue": "^3.4.29",
+    "vue-router": "^4.4.0"
+  },
+  "devDependencies": {
+    "@iconify-json/carbon": "^1.1.36",
+    "@iconify-json/emojione-v1": "^1.1.10",
+    "@iconify-json/gg": "^1.1.9",
+    "@iconify-json/ic": "^1.2.1",
+    "@iconify-json/solar": "^1.2.1",
+    "@iconify-json/tabler": "^1.2.7",
+    "@iconify/tailwind": "^1.1.1",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "autoprefixer": "^10.4.19",
+    "naive-ui": "^2.38.2",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5.2.2",
+    "unplugin-auto-import": "^0.17.6",
+    "unplugin-vue-components": "^0.27.0",
+    "vfonts": "^0.0.3",
+    "vite": "^5.3.1",
+    "vue-tsc": "^2.0.21"
+  }
+}
