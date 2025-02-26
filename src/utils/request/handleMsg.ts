@@ -8,8 +8,8 @@ const handleMsg = (pageData: any, config: RequestConfig) => {
     config?.show && window.$msg.success(config.message||pageData.msg || 'ok')
   } else if (RequestCodeEnum.TOKEN_INVALID.includes(pageData.code)) {
     window.$msg.error(pageData.msg || '请求错误')
-    // cache.remove(TOKEN_KEY)
-    // location.reload()
+    cache.remove(TOKEN_KEY)
+    location.reload()
   } else if (pageData.code === RequestCodeEnum.ServerError) {
     window.$msg.error("请稍后重试....")
   } else { 
