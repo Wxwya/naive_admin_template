@@ -70,8 +70,7 @@ const useSystemStore = defineStore('system', {
               
             })
           } else { 
-            item.path = item.path.replace('/', '')
-            item.component = () => import(`@/views/${item.path}/index.vue`)
+            item.component = () => import(`@/views/${item.path.replace('/', '')}/index.vue`)
           }
           newRoutes.push(item)
         })
