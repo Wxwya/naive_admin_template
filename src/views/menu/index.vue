@@ -88,7 +88,7 @@ const initMenu = (title,row) => {
 }
 const delMenu = async (id) => {
   const m = window.$msg.loading('正在删除', { duration: 0 })
-  const res = await proxy.$api.menu.delMenu({ ids: id ? [id] : rowIds.value })
+  const res = await proxy.$api.menu.delMenu(id ? [id] : rowIds.value )
   if (res.code === 200) { 
     getlist()
   }

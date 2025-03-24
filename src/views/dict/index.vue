@@ -53,7 +53,7 @@ const search = (state, change) => {
 }
 const delDictType = async (id) => {
   const m = window.$msg.loading('正在删除', { duration: 0 })
-  const res = await proxy.$api.dict.delDictType({ ids: id ? [id] : rowIds.value })
+  const res = await proxy.$api.dict.delDictType( id ? [id] : rowIds.value )
   if (res.code === 200) { 
     getlist()
   }

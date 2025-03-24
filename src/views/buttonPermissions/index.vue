@@ -59,7 +59,7 @@ const initColumns = () => {
 }
 const delPermissions = async (id) => {
   const m = window.$msg.loading('正在删除', { duration: 0 })
-  const res = await proxy.$api.permissions.delPermissions({ ids: id ? [id] : rowIds.value })
+  const res = await proxy.$api.permissions.delPermissions( id ? [id] : rowIds.value )
   if (res.code === 200) { 
     getlist()
   }
