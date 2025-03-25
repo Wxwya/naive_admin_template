@@ -34,6 +34,6 @@
     "noFallthroughCasesInSwitch": true,
     "types": ["naive-ui/volar",]
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "public/worker.ts"],
   "exclude": ["node_modules"]
 }

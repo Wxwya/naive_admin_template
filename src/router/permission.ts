@@ -8,8 +8,6 @@ router.beforeEach(async (to, from, next) => {
 
   const systemStore = useSystemStore()
   const token = cache.getLocalStorage(TOKEN_KEY)
-  console.log("token",token,to);
-  
   window.$bar.start()
   if (token) {
     if (!systemStore.routesAdded) {

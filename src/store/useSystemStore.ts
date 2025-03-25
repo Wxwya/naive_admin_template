@@ -36,7 +36,6 @@ const useSystemStore = defineStore('system', {
       this.theme = this.theme != null ? null : markRaw(darkTheme) 
     },
     addRoutes(asyncRoutes) {
-      console.log('开始添加路由', asyncRoutes)
       let pageRoutes = getPageRoutes() 
       console.log("pageRoutes",pageRoutes);
       
@@ -52,7 +51,6 @@ const useSystemStore = defineStore('system', {
       })
       // 处理导航栏路由
       this.routes = this.handleNav(pageRoutes[0].children)
-     
      
       console.log('添加路由完成',this.routes)
     },
@@ -90,7 +88,6 @@ const useSystemStore = defineStore('system', {
         if (item.hidden) return 
         let p = { label: item.title, key: item.path }
         item.icon ? p.icon = () => h(MyIcon, { icon:item.icon  }) : ''
-        console.log(item.icon);
         
         if (item.children && item.children.length > 0) {
           if (item.children.length == 1) {

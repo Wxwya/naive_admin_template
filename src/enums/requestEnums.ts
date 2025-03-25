@@ -15,7 +15,7 @@ export enum RequestMethodsEnum {
 export enum RequestCodeEnum {
   SUCCESS = 200,
   FAILED = 400, 
-  TOKEN_INVALID = [1001, 1002, 1003,1004,401],
+  TOKEN_INVALID = [1001, 1002, 1003,1004,1005,401],
   ServerError = 500, 
 }
 
